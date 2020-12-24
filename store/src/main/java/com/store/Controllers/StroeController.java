@@ -32,7 +32,7 @@ public class StroeController {
     @PostMapping("/AddCategory")
     public CommonResponse AddCategory(@RequestBody Category category)  {
         try { return categoryService.AddCategory(category);
-        }catch (Exception e){ return new CommonResponse(ConstantClass.ErorrMesseges.FailMes+" - "+e.getMessage(),ConstantClass.ErorrCodes.FailCode,ConstantClass.StatusMesseges.FalseStatus,ConstantClass.HelperClass.getUUID()); }
+        }catch (Exception e){ return new CommonResponse(ConstantClass.ErorrMesseges.FailMes+" - "+e.getMessage(),ConstantClass.ErorrCodes.FAIL_CODE,ConstantClass.StatusMesseges.FalseStatus,ConstantClass.HelperClass.getUUID()); }
         }
 
 

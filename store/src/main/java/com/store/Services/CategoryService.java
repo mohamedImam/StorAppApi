@@ -35,6 +35,6 @@ public class CategoryService {
         category1.setCategoryName(category.getCategoryName());
         System.out.println(category1.getCategoryName());
         categoryRepository.save(category);
-        return new CommonResponse(ConstantClass.ErorrMesseges.SuccessMes,ConstantClass.ErorrCodes.SuccessCode,ConstantClass.StatusMesseges.TrueStatus,ConstantClass.HelperClass.getUUID());
+        return new CommonResponse(ConstantClass.ErorrMesseges.SuccessMes,ConstantClass.ErorrCodes.SUCCESS_CODE,ConstantClass.StatusMesseges.TrueStatus,ConstantClass.HelperClass.getUUID());
     }
 }

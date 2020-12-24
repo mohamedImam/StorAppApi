@@ -2,9 +2,7 @@ package com.store.Controllers;
 
 import com.data.models.CommonResponse;
 import com.data.models.ConstantClass;
-import com.data.models.store.Category;
 import com.data.models.store.Product;
-import com.store.Services.CategoryService;
 import com.store.Services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +33,6 @@ public class ProductController {
     @PostMapping("/AddProduct")
     public CommonResponse AddCategory(@RequestBody Product product)  {
         try { return productService.AddProduct(product);
-        }catch (Exception e){ return new CommonResponse(ConstantClass.ErorrMesseges.FailMes+" - "+e.getMessage(),ConstantClass.ErorrCodes.FailCode,ConstantClass.StatusMesseges.FalseStatus,ConstantClass.HelperClass.getUUID()); }
+        }catch (Exception e){ return new CommonResponse(ConstantClass.ErorrMesseges.FailMes+" - "+e.getMessage(),ConstantClass.ErorrCodes.FAIL_CODE,ConstantClass.StatusMesseges.FalseStatus,ConstantClass.HelperClass.getUUID()); }
     }
 }

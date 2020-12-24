@@ -25,7 +25,7 @@ public class MainService {
 
         return new CommonResponse(
                 ConstantClass.ErorrMesseges.SuccessMes,
-                ConstantClass.ErorrCodes.SuccessCode,
+                ConstantClass.ErorrCodes.SUCCESS_CODE,
                 ConstantClass.StatusMesseges.TrueStatus,
                 ConstantClass.HelperClass.getUUID()
         );

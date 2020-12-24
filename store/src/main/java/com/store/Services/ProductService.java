@@ -2,9 +2,7 @@ package com.store.Services;
 
 import com.data.models.CommonResponse;
 import com.data.models.ConstantClass;
-import com.data.models.Repositories.CategoryRepository;
 import com.data.models.Repositories.ProductRepository;
-import com.data.models.store.Category;
 import com.data.models.store.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,7 +33,7 @@ public class ProductService {
         productRepository.save(product);
         return new CommonResponse(
                 ConstantClass.ErorrMesseges.SuccessMes,
-                ConstantClass.ErorrCodes.SuccessCode,
+                ConstantClass.ErorrCodes.SUCCESS_CODE,
                 ConstantClass.StatusMesseges.TrueStatus,
                 ConstantClass.HelperClass.getUUID()
         );

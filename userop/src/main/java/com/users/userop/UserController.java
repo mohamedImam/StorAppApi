@@ -27,7 +27,7 @@ public class UserController {
             return mainService.AddUser(user);
 
         }catch (Exception e){
-            return new CommonResponse(ConstantClass.ErorrMesseges.FailMes,ConstantClass.ErorrCodes.FailCode,ConstantClass.StatusMesseges.FalseStatus,ConstantClass.HelperClass.getUUID());
+            return new CommonResponse(ConstantClass.ErorrMesseges.FailMes,ConstantClass.ErorrCodes.FAIL_CODE,ConstantClass.StatusMesseges.FalseStatus,ConstantClass.HelperClass.getUUID());
         }
 
     }
