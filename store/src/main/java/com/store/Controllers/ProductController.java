@@ -2,8 +2,10 @@ package com.store.Controllers;
 
 import com.data.models.CommonResponse;
 import com.data.models.ConstantClass;
+import com.data.models.ErrorHandler.ApiExceptions.NoFoundException;
 import com.data.models.store.Product;
 import com.store.Services.ProductService;
+import javassist.compiler.NoFieldException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +25,10 @@ public class ProductController {
 
     @GetMapping("/getAllProduct")
     public List<Product> getAllProduct() {
+        try {
             return productService.getAllProducts();
+        }catch (Exception e){throw new NoFoundException();  }
+
     }
 
     @GetMapping("/getProductById")

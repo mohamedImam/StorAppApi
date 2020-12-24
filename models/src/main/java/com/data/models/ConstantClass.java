@@ -11,23 +11,21 @@ public class ConstantClass {
 
     public static class ErorrCodes
     {
-        public static final int SUCCESS_CODE = 200;
-        public static final int FAIL_CODE = 500;
-        public static final int NOT_FOUND = 404;
+        public static final int SUCCESS_CODE                = 200;
+        public static final int FAIL_CODE                   = 500;
         public static int RESPONSE_BAD_REQUEST              = 410;
         public static int RESPONSE_CREDENTIALS_ERROR        = 201;
         public static int RESPONSE_INVALID_CURRENCY         = 512;
         public static int RESPONSE_INVALID_DATE             = 515;
         public static int RESPONSE_DUPLICATED_REFNO         = 517;
-        public static int RESPONSE_NO_DATA_FOUND            = 400;
+        public static int RESPONSE_NO_DATA_FOUND            = 404;
         public static int RESPONSE_INVALID_TRANACTION_NUMBER= 516;
         public static int RESPONSE_API_USER_LOCKED          = 202;
     }
     public static class ErorrMesseges
     {
-        public static final String SuccessMes = "Success";
-        public static final String FailMes = "Fail";
-        public static final String  NotFoundMes = "Not Found";
+        public static final String SuccessMes   = "Success";
+        public static final String FailMes      = "Failed";
         //--------------------EXCEPTIONS--------------------------
         public static String EXCEPTIONS_BAD_REQUEST                = "Bad Request Parameters";
         public static String EXCEPTIONS_CREDENTIALS                = "Bad Authentication data";
@@ -42,7 +40,7 @@ public class ConstantClass {
     }
     public static class StatusMesseges
     {
-        public static final boolean TrueStatus = true;
+        public static final boolean TrueStatus  = true;
         public static final boolean FalseStatus = false;
     }
     public static class HelperClass {

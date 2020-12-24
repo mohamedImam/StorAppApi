@@ -2,7 +2,9 @@ package com.store.Services;
 
 import com.data.models.CommonResponse;
 import com.data.models.ConstantClass;
+import com.data.models.ErrorHandler.ApiExceptions.NoFoundException;
 import com.data.models.Repositories.ProductRepository;
+import com.data.models.store.Category;
 import com.data.models.store.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,12 +22,15 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public List<Product> getAllProducts() {
-        return productRepository.findAll();
+    public List<Product> getAllProducts() throws Exception {
+        List<Product>   productList=productRepository.findAll();
+        if(productList.isEmpty()){throw new NoFoundException();}
+        return productList;
     }
 
     public Product getProductById(long productId) {
         Optional<Product> product = productRepository.findById(productId);
+        if(product.isEmpty()){throw new NoFoundException();}
         return product.get();
     }
 

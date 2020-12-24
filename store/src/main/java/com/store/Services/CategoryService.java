@@ -2,8 +2,10 @@ package com.store.Services;
 
 import com.data.models.CommonResponse;
 import com.data.models.ConstantClass;
+import com.data.models.ErrorHandler.ApiExceptions.NoFoundException;
 import com.data.models.Repositories.CategoryRepository;
 import com.data.models.store.Category;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,12 +22,15 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public List<Category> getAllCategories() {
-        return categoryRepository.findAll();
+    public List<Category> getAllCategories() throws Exception {
+        List<Category> categoryList =categoryRepository.findAll();
+        if(categoryList.isEmpty()){throw new NoFoundException();}
+        return categoryList;
     }
 
     public Category getCategorById(long categoryId) {
         Optional<Category> category = categoryRepository.findById(categoryId);
+        if(category.isEmpty()){throw new NoFoundException();}
         return category.get();
     }
 
@@ -35,6 +40,10 @@ public class CategoryService {
         category1.setCategoryName(category.getCategoryName());
         System.out.println(category1.getCategoryName());
         categoryRepository.save(category);
-        return new CommonResponse(ConstantClass.ErorrMesseges.SuccessMes,ConstantClass.ErorrCodes.SUCCESS_CODE,ConstantClass.StatusMesseges.TrueStatus,ConstantClass.HelperClass.getUUID());
+
+        return new CommonResponse(ConstantClass.ErorrMesseges.SuccessMes,
+                ConstantClass.ErorrCodes.SUCCESS_CODE,
+                ConstantClass.StatusMesseges.TrueStatus,
+                ConstantClass.HelperClass.getUUID());
     }
 }
