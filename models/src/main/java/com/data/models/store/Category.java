@@ -1,6 +1,7 @@
 package com.data.models.store;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -33,6 +34,7 @@ public class Category implements Serializable {
             name = "category_product",
             joinColumns = {@JoinColumn(name = "PRODUCT_ID",referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "CATEGORY_ID", referencedColumnName = "id")})
+    @JsonIgnore
     private List<Product> products = new ArrayList<>();
 
     //TODO : add many to many relationship with products

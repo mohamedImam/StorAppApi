@@ -32,11 +32,12 @@ public class ProductService {
     }
 
     public CommonResponse AddProduct(Product product) throws Exception {
-        System.out.println(product.getProductName());
-        Category category1 = new Category();
-        category1.setCategoryName(product.getProductName());
-        System.out.println(category1.getCategoryName());
         productRepository.save(product);
-        return new CommonResponse(ConstantClass.ErorrMesseges.SuccessMes,ConstantClass.ErorrCodes.SuccessCode,ConstantClass.StatusMesseges.TrueStatus,ConstantClass.HelperClass.getUUID());
+        return new CommonResponse(
+                ConstantClass.ErorrMesseges.SuccessMes,
+                ConstantClass.ErorrCodes.SuccessCode,
+                ConstantClass.StatusMesseges.TrueStatus,
+                ConstantClass.HelperClass.getUUID()
+        );
     }
 }
