@@ -1,7 +1,5 @@
 package com.data.models.store;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 @SuppressWarnings("ALL")
@@ -11,9 +9,28 @@ public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "STOCK_ID_SEQ")
     @SequenceGenerator(name = "STOCK_ID_SEQ", sequenceName = "STOCK_ID_SEQ", allocationSize = 1)
-    private  int Id;
+    private long Id;
     private int quantity;
-    @JsonIgnore
+     private long productId;
+    private long supplierId;
+
+    public long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(long productId) {
+        this.productId = productId;
+    }
+
+    public long getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(long supplierId) {
+        this.supplierId = supplierId;
+    }
+
+   /* @JsonIgnore
     @OneToOne
     @JoinColumn(name = "product_id", nullable = false, unique = true)
     private Product product;
@@ -29,11 +46,25 @@ public class Stock {
                     name = "fk_supllier_stock_id"
             )
     )
-    private Supplier supplier;
+    private Suppliers supplier;
 
+    public Product getProduct() {
+        return product;
+    }
 
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
-    public int getId() {
+    public Suppliers getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Suppliers supplier) {
+        this.supplier = supplier;
+    }
+*/
+    public long getId() {
         return Id;
     }
 
@@ -49,20 +80,6 @@ public class Stock {
         this.quantity = quantity;
     }
 
-    public Product getProduct() {
-        return product;
-    }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public Supplier getSupplier() {
-        return supplier;
-    }
-
-    public void setSupplier(Supplier supplier) {
-        this.supplier = supplier;
-    }
 }
 

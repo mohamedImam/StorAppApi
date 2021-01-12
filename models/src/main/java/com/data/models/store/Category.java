@@ -20,6 +20,7 @@ public class Category implements Serializable {
     @SequenceGenerator(name = "CATEGORY_ID_SEQ", sequenceName = "CATEGORY_ID_SEQ", allocationSize = 1)
     private long id;
     private String categoryName;
+    private String categoryNameAr;
     private String imageName;
     private String description;
     private boolean status;
@@ -29,13 +30,13 @@ public class Category implements Serializable {
     private String createdAt;
    // @UpdateTimestamp
     private String updatedAt;
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+   /* @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(
             name = "category_product",
             joinColumns = {@JoinColumn(name = "PRODUCT_ID",referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "CATEGORY_ID", referencedColumnName = "id")})
     @JsonIgnore
-    private List<Product> products = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();*/
 
     //TODO : add many to many relationship with products
 
@@ -43,7 +44,7 @@ public class Category implements Serializable {
         super();
     }
 
-    public Category(String categoryName, String imageName, String description, boolean status, int parentId, String createdAt, String updatedAt) {
+    public Category(String categoryNameAr,String categoryName, String imageName, String description, boolean status, int parentId, String createdAt, String updatedAt) {
         this.categoryName = categoryName;
         this.imageName = imageName;
         this.description = description;
@@ -51,15 +52,24 @@ public class Category implements Serializable {
         this.parentId = parentId;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.categoryNameAr=categoryNameAr;
     }
 
-    public List<Product> getProducts() {
+    public String getCategoryNameAr() {
+        return categoryNameAr;
+    }
+
+    public void setCategoryNameAr(String categoryNameAr) {
+        this.categoryNameAr = categoryNameAr;
+    }
+
+  /*  public List<Product> getProducts() {
         return products;
     }
 
     public void setProducts(List<Product> products) {
         this.products = products;
-    }
+    }*/
     public long getId() {
         return id;
     }

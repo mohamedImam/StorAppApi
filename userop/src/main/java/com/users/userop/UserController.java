@@ -1,7 +1,7 @@
 package com.users.userop;
 
 import com.data.models.ConstantClass;
-import com.data.models.CommonResponse;
+import com.data.models.Responses.CommonResponse;
 import com.data.models.users.User;
 import com.users.userop.Service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;

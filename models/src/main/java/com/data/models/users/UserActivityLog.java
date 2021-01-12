@@ -1,4 +1,4 @@
-package com.data.models.store.users;
+package com.data.models.store.Heplers;
 
 import com.data.models.enums.PageName;
 import org.hibernate.annotations.CreationTimestamp;

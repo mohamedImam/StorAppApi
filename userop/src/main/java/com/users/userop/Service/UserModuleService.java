@@ -1,15 +1,15 @@
 package com.users.userop.Service;
 
-import com.data.models.Repositories.UserActivityLogRepository;
-import com.data.models.Repositories.UserPermissionRepository;
-import com.data.models.Repositories.UserRepository;
-import com.data.models.Repositories.UserRoleRepository;
+import com.data.models.Repositories.Users.UserActivityLogRepository;
+import com.data.models.Repositories.Users.UserPermissionRepository;
+import com.data.models.Repositories.Users.UserRepository;
+import com.data.models.Repositories.Users.UserRoleRepository;
 import com.data.models.enums.PageName;
 import com.data.models.users.User;
 import com.data.models.users.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.data.models.store.users.UserPermission;
+import com.data.models.store.Heplers.UserPermission;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
@@ -46,7 +46,7 @@ public class UserModuleService {
         return userRepository.findByUserNameAndPassword(userName, password);
     }
 
-    public com.data.models.store.users.UserPermission isAuthorized(User user, String pageName) {
+    public com.data.models.store.Heplers.UserPermission isAuthorized(User user, String pageName) {
         UserPermission pagePermission = null;
         if (user != null && user.getUserRole() != null && user.getUserRole().getUserPermissions() != null) {
             for (UserPermission p : user.getUserRole().getUserPermissions())

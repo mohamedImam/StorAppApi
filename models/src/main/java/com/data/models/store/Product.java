@@ -1,10 +1,6 @@
 package com.data.models.store;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Product {
@@ -16,30 +12,80 @@ public class Product {
     @SequenceGenerator(name = "PRODUCT_ID_SEQ", sequenceName = "PRODUCT_ID_SEQ", allocationSize = 1)
     private long id;
     private String productName;
+    private String productNameAr;
     private String description;
     private int   status;
     private long price;
     private long discountPrice;
+    private long categoryId;
+    private String barcodeNumber;
+    private long brandId;
+    private long currency;
+    private long storeId;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "product")
-    private Stock stock;
+    public long getStoreId() {
+        return storeId;
+    }
 
-    @JsonIgnore
+    public void setStoreId(long storeId) {
+        this.storeId = storeId;
+    }
+
+    public long getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(long currency) {
+        this.currency = currency;
+    }
+
+    public long getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(long brandId) {
+        this.brandId = brandId;
+    }
+
+    public String getBarcodeNumber() {
+        return barcodeNumber;
+    }
+
+    public void setBarcodeNumber(String barcodeNumber) {
+        this.barcodeNumber = barcodeNumber;
+    }
+
+    public String getProductNameAr() {
+        return productNameAr;
+    }
+
+    public void setProductNameAr(String productNameAr) {
+        this.productNameAr = productNameAr;
+    }
+
+    public long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    /*   @JsonIgnore
     @ManyToMany(mappedBy = "products")
-    private List<Category> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();*/
 
 
-    public OrderDetails getOrderDetails() {
+   /* public OrderDetails getOrderDetails() {
         return orderDetails;
     }
 
     public void setOrderDetails(OrderDetails orderDetails) {
         this.orderDetails = orderDetails;
-    }
+    }*/
 
     @SuppressWarnings("JpaDataSourceORMInspection")
-    @ManyToOne(
+ /*   @ManyToOne(
             fetch = FetchType.LAZY,
             optional = false
     )
@@ -50,7 +96,7 @@ public class Product {
                     name = "fk_detials_product_id"
             )
     )
-    private OrderDetails orderDetails;
+    private OrderDetails orderDetails;*/
 
     public long getId() {
         return id;
@@ -100,7 +146,7 @@ public class Product {
         this.discountPrice = discountPrice;
     }
 
-    public Stock getStock() {
+   /* public Stock getStock() {
         return stock;
     }
 
@@ -114,5 +160,5 @@ public class Product {
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
-    }
+    }*/
 }

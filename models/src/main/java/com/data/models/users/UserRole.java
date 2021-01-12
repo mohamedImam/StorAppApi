@@ -22,7 +22,7 @@ public class UserRole implements Serializable {
     private List<User> users = new ArrayList<>();
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(name = "role_permission", joinColumns = @JoinColumn(name = "ROLE_ID", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "PERM_ID", referencedColumnName = "id"))
-    private List<com.data.models.store.users.UserPermission> userPermissions = new ArrayList<>();
+    private List<com.data.models.store.Heplers.UserPermission> userPermissions = new ArrayList<>();
     private boolean status;
 
 
@@ -49,11 +49,11 @@ public class UserRole implements Serializable {
         this.name = name;
     }
 
-    public List<com.data.models.store.users.UserPermission> getUserPermissions() {
+    public List<com.data.models.store.Heplers.UserPermission> getUserPermissions() {
         return userPermissions;
     }
 
-    public void setUserPermissions(List<com.data.models.store.users.UserPermission> userPermissions) {
+    public void setUserPermissions(List<com.data.models.store.Heplers.UserPermission> userPermissions) {
         this.userPermissions = userPermissions;
     }
 

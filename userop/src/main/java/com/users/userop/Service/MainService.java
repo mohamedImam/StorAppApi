@@ -2,9 +2,9 @@ package com.users.userop.Service;
 
 
 
-import com.data.models.CommonResponse;
+import com.data.models.Responses.CommonResponse;
 import com.data.models.ConstantClass;
-import com.data.models.Repositories.UserRepository;
+import com.data.models.Repositories.Users.UserRepository;
 import com.data.models.users.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

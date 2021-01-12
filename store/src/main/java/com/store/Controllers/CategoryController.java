@@ -1,17 +1,11 @@
 package com.store.Controllers;
 
-import com.data.models.CommonResponse;
-import com.data.models.ConstantClass;
-import com.data.models.ErrorHandler.ApiExceptions.BadRequestException;
 import com.data.models.ErrorHandler.ApiExceptions.NoFoundException;
-import com.data.models.ErrorHandler.ApiExceptions.OperationFailedException;
+import com.data.models.Responses.MainResponse;
 import com.data.models.store.Category;
 import com.store.Services.CategoryService;
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @author: mohamed Imam
@@ -26,26 +20,19 @@ public class CategoryController {
     CategoryService categoryService;
 
     @GetMapping("/getAllCategories")
-    public List<Category> getAllCategories()
+    public MainResponse getAllCategories()
     {
-        try {
-            return  categoryService.getAllCategories();
-        }catch (Exception e) {
-            throw new NoFoundException();
-        }
+        try { return  categoryService.getAllCategories();
+        }catch (Exception e) {throw new NoFoundException(); }
     }
 
     @GetMapping("/getCategoryById/{categoryId}")
-    public Category getCategoryById(@PathVariable long categoryId)
+    public MainResponse getCategoryById(@PathVariable long categoryId)
     {return  categoryService.getCategorById(categoryId); }
 
     @PostMapping("/AddCategory")
-    public CommonResponse AddCategory(@RequestBody Category category)  {
-        try { return categoryService.AddCategory(category);
-        }catch (Exception e){
-            //return new CommonResponse(ConstantClass.ErorrMesseges.FailMes+" - "+e.getMessage(),ConstantClass.ErorrCodes.FAIL_CODE,ConstantClass.StatusMesseges.FalseStatus,ConstantClass.HelperClass.getUUID());
-        throw new OperationFailedException();
-        }
+    public MainResponse AddCategory(@RequestBody Category category)  {
+            return categoryService.AddCategory(category);
         }
 
 
